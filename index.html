@@ -1,280 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RNA Running Team</title>
-    
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Define custom colors and base styles */
+        /* Using Inter font family */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
-            color: #F5F5DC; /* Cream */
-            overflow-x: hidden;
+            color: #f5f5f4; /* Using Tailwind's stone-100 as cream */
         }
-        
-        /* --- Main Navigation Styles --- */
-        .nav-link.active { border-right-width: 4px; }
-        .nav-link { transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
-        
-        .nav-link[data-target="news"].active { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border-right-color: #f59e0b; }
-        .nav-link[data-target="team"].active { background-color: rgba(0, 229, 255, 0.1); color: #00E5FF; border-right-color: #00E5FF; }
-        .nav-link[data-target="run"].active { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; border-right-color: #ef4444; }
-        .nav-link[data-target="join"].active { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border-right-color: #ffffff; }
-
-        /* --- Sub-Navigation Styles --- */
-        .sub-nav-link { transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
-        
-        /* Team Sub-nav Colors */
-        button.sub-nav-link[data-target="team-rna"].active { background-color: #F5F5DC; color: #000000; } /* Cream White */
-        button.sub-nav-link[data-target="team-spata"].active { background-color: #3b82f6; color: #ffffff; } /* Blue */
-
-        /* Run Sub-nav Colors */
-        button.sub-nav-link[data-target="run-training"].active { background-color: #ffffff; color: #000000; } /* White */
-        button.sub-nav-link[data-target="run-events"].active { background-color: #22c55e; color: #ffffff; } /* Green */
-        button.sub-nav-link[data-target="run-race"].active { background-color: #a855f7; color: #ffffff; } /* Purple */
-        
-        /* --- General & Animation Styles --- */
-        #splash-screen { transition: opacity 0.8s ease-in-out; }
-        .hidden { display: none; }
-
-        /* Button Ripple Animation */
-        .btn-ripple {
-            position: relative;
-            overflow: hidden;
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        span.ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 900ms linear;
-            background-color: rgba(255, 255, 255, 0.7);
+        ::-webkit-scrollbar-track {
+            background: #000;
         }
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+        ::-webkit-scrollbar-thumb {
+            background: #0284c7;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+        /* Simple animation for sections */
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-black text-stone-200">
 
-    <!-- Splash Screen -->
-    <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
-        <img src="https://i.imgur.com/uG5Jk8A.jpeg" alt="RNA Logo" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover mb-8 animate-pulse">
-        <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-8">RNA</h1>
-        <button id="enter-button" class="bg-amber-500 text-black font-bold py-3 px-8 rounded-lg text-lg hover:bg-amber-400 btn-ripple">
-            Enter the Run
-        </button>
-    </div>
-
-    <!-- Main Content (initially hidden) -->
-    <div id="main-content" class="hidden min-h-screen md:flex">
-        <!-- Sidebar Navigation -->
-        <nav class="md:w-64 bg-gray-900/70 backdrop-blur-sm border-r border-gray-800 p-4 md:p-6 flex-shrink-0">
-            <div class="flex items-center justify-center mb-10">
-                <img src="https://i.imgur.com/uG5Jk8A.jpeg" alt="RNA Logo" class="w-24 h-24 rounded-full object-cover">
+    <!-- Header and Navigation -->
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 border-b border-stone-800">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home">
+                <img src="https://drive.google.com/uc?id=1EmjEgZfuKY6sF89Wu6dMmUW1WTbD1dlv" alt="RNA Logo" class="h-12 w-auto">
+            </a>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-stone-200 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            <ul class="space-y-2" id="nav-links">
-                <li><a href="#" class="nav-link block p-4 rounded-lg font-semibold active" data-target="news">News</a></li>
-                <li><a href="#" class="nav-link block p-4 rounded-lg font-semibold" data-target="team">Team</a></li>
-                <li><a href="#" class="nav-link block p-4 rounded-lg font-semibold" data-target="run">Run</a></li>
-                <li><a href="#" class="nav-link block p-4 rounded-lg font-semibold" data-target="join">Join</a></li>
-            </ul>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#philosophy" class="hover:text-sky-600 transition-colors duration-300">Philosophy</a>
+                <a href="#sessions" class="hover:text-sky-600 transition-colors duration-300">Sessions</a>
+                <a href="#events" class="hover:text-sky-600 transition-colors duration-300">Events</a>
+                <a href="#members" class="hover:text-sky-600 transition-colors duration-300">Members</a>
+                <a href="#join" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Join Us</a>
+            </div>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#philosophy" class="block py-2 px-6 text-sm hover:bg-stone-900">Philosophy</a>
+            <a href="#sessions" class="block py-2 px-6 text-sm hover:bg-stone-900">Sessions</a>
+            <a href="#events" class="block py-2 px-6 text-sm hover:bg-stone-900">Events</a>
+            <a href="#members" class="block py-2 px-6 text-sm hover:bg-stone-900">Members</a>
+            <a href="#join" class="block py-2 px-6 text-sm hover:bg-stone-900">Join Us</a>
+        </div>
+    </header>
 
-        <!-- Main Content Area -->
-        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
-            
-            <!-- News Section -->
-            <div id="news" class="content-section">
-                <h1 class="text-4xl font-bold text-amber-500 mb-6">Latest News</h1>
-                <div class="space-y-8">
-                    <!-- News Item 1 -->
-                    <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                        <h3 class="text-2xl font-bold text-amber-400">Local Runner Wins City Marathon</h3>
-                        <p class="text-sm text-cyan-500 mb-2">June 20, 2025</p>
-                        <p class="text-lg">In an exciting finish, a hometown hero clinches the top spot in this year's city marathon, breaking the previous course record.</p>
+    <main class="container mx-auto px-6">
+
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center section-fade-in">
+            <div class="max-w-4xl">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4">
+                    Run. <span class="text-sky-600">Evolve.</span> Repeat.
+                </h1>
+                <p class="text-lg md:text-xl text-stone-400 max-w-2xl">
+                    We are RNA, a collective of runners bound by the pursuit of progress. We believe every stride is a step towards a better self. Welcome to the team.
+                </p>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="py-20 md:py-32 section-fade-in">
+            <div class="max-w-4xl mx-auto text-center">
+                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4">Our Core Beliefs</h2>
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-8">The DNA of RNA</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Consistency</h4>
+                        <p class="text-stone-400">Success isn't born from grand gestures, but from the discipline of showing up, day after day. We value the rhythm of routine.</p>
                     </div>
-                    <!-- News Item 2 -->
-                    <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                        <h3 class="text-2xl font-bold text-amber-400">New Scenic Trail Opens in National Park</h3>
-                        <p class="text-sm text-cyan-500 mb-2">June 15, 2025</p>
-                        <p class="text-lg">Trail runners rejoice as a new 15-mile loop with breathtaking views officially opens in the nearby national park.</p>
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Community</h4>
+                        <p class="text-stone-400">We run our own races, but never alone. The team is our pacer, our support system, and our motivation to push beyond limits.</p>
                     </div>
-                    <!-- News Item 3 -->
-                    <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                        <h3 class="text-2xl font-bold text-amber-400">RNA Team Dominates at Regional 10K</h3>
-                        <p class="text-sm text-cyan-500 mb-2">June 8, 2025</p>
-                        <p class="text-lg">Our very own RNA team members took home multiple awards at last weekend's regional 10K race. Congratulations to all participants!</p>
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Adaptation</h4>
+                        <p class="text-stone-400">Like our namesake, we adapt and evolve. We learn from every run, every setback, and every victory to become stronger athletes.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Team Section -->
-            <div id="team" class="content-section hidden">
-                <h1 class="text-4xl font-bold text-amber-500 mb-6">Our Team</h1>
-                <div class="mb-6 border-b border-gray-700">
-                    <nav class="flex space-x-4" id="team-sub-nav">
-                        <button class="sub-nav-link py-2 px-4 font-semibold rounded-t-lg active btn-ripple" data-target="team-rna">RNA</button>
-                        <button class="sub-nav-link py-2 px-4 font-semibold rounded-t-lg btn-ripple" data-target="team-spata">Spata Running</button>
-                    </nav>
-                </div>
-                <div id="team-rna" class="team-content">
-                    <p class="mb-8 max-w-2xl text-lg">We are a passionate group of runners dedicated to pushing our limits and supporting each other. From casual joggers to competitive marathoners, RNA is a community for everyone.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 text-center"> <img src="https://placehold.co/150x150/1F2937/F5F5DC?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-amber-500"> <h3 class="text-xl font-bold text-amber-400">Alex Ray</h3> <p class="text-sm text-cyan-500 mb-2">Team Captain</p> </div>
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 text-center"> <img src="https://placehold.co/150x150/1F2937/F5F5DC?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-amber-500"> <h3 class="text-xl font-bold text-amber-400">Maria Garcia</h3> <p class="text-sm text-cyan-500 mb-2">Lead Coach</p> </div>
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 text-center"> <img src="https://placehold.co/150x150/1F2937/F5F5DC?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-amber-500"> <h3 class="text-xl font-bold text-amber-400">Sam Chen</h3> <p class="text-sm text-cyan-500 mb-2">Pacer</p> </div>
+        <!-- Sessions Section -->
+        <section id="sessions" class="py-20 md:py-32 section-fade-in">
+            <div class="max-w-6xl mx-auto text-center">
+                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4">Weekly Grind</h2>
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-12">Training Sessions</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Monday</h4>
+                        <p class="text-sky-600 text-lg">Weak STR</p>
                     </div>
-                </div>
-                <div id="team-spata" class="team-content hidden">
-                    <p class="mb-8 max-w-2xl text-lg">The Spata Running division focuses on local trails and community races in the Spata region, welcoming runners of all levels to explore the local scenery.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 text-center"> <img src="https://placehold.co/150x150/1F2937/F5F5DC?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-cyan-500"> <h3 class="text-xl font-bold text-amber-400">Nikos G.</h3> <p class="text-sm text-cyan-500 mb-2">Spata Group Leader</p> </div>
+                    <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Tuesday</h4>
+                        <p class="text-sky-600 text-lg">Terrible Tempo</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Run Section -->
-            <div id="run" class="content-section hidden">
-                 <h1 class="text-4xl font-bold text-amber-500 mb-6">Running Activities</h1>
-                 <div class="mb-6 border-b border-gray-700">
-                    <nav class="flex space-x-4" id="run-sub-nav">
-                        <button class="sub-nav-link py-2 px-4 font-semibold rounded-t-lg active btn-ripple" data-target="run-training">Training</button>
-                        <button class="sub-nav-link py-2 px-4 font-semibold rounded-t-lg btn-ripple" data-target="run-events">Events</button>
-                        <button class="sub-nav-link py-2 px-4 font-semibold rounded-t-lg btn-ripple" data-target="run-race">Race</button>
-                    </nav>
-                </div>
-
-                <!-- Training Sub-section -->
-                <div id="run-training" class="run-content">
-                    <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                        <h3 class="text-2xl font-bold text-amber-400 mb-4">Weekly Schedule</h3>
-                        <ul class="space-y-4 text-lg">
-                            <li class="p-4 bg-gray-900 rounded-md"><strong>Tuesday (6:00 PM):</strong> Tempo Run - 5-7 miles @ City Park</li>
-                            <li class="p-4 bg-gray-900 rounded-md"><strong>Thursday (6:00 PM):</strong> Hill Repeats - 45 mins @ Sunset Hill</li>
-                            <li class="p-4 bg-gray-900 rounded-md"><strong>Saturday (8:00 AM):</strong> Long Run - 10-15 miles @ Lakefront Trail</li>
-                        </ul>
+                    <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Thursday</h4>
+                        <p class="text-sky-600 text-lg">Bored Intervals</p>
                     </div>
-                </div>
-
-                <!-- Events Sub-section -->
-                <div id="run-events" class="run-content hidden">
-                     <div class="space-y-8">
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 md:flex items-center gap-6"> <img src="https://placehold.co/400x250/111827/F59E0B?text=Event+Image" class="w-full md:w-1/3 h-auto rounded-lg mb-4 md:mb-0 object-cover"> <div class="flex-1"> <h3 class="text-2xl font-bold text-amber-400">Carb-Load Dinner</h3> <p class="text-md text-cyan-500 mb-2">September 14, 2024</p> <p class="text-lg">Join us for a pre-race pasta dinner before the Downtown 10K. Family and friends welcome.</p> </div> </div>
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 md:flex items-center gap-6"> <img src="https://placehold.co/400x250/111827/F59E0B?text=Event+Image" class="w-full md:w-1/3 h-auto rounded-lg mb-4 md:mb-0 object-cover"> <div class="flex-1"> <h3 class="text-2xl font-bold text-amber-400">Nutrition Workshop</h3> <p class="text-md text-cyan-500 mb-2">November 5, 2024</p> <p class="text-lg">Learn about proper fueling strategies for training and race day from a certified sports nutritionist.</p> </div> </div>
-                    </div>
-                </div>
-
-                <!-- Race Sub-section -->
-                <div id="run-race" class="run-content hidden">
-                    <div class="space-y-8">
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 md:flex items-center gap-6"> <img src="https://placehold.co/400x250/111827/F59E0B?text=Race+Image" class="w-full md:w-1/3 h-auto rounded-lg mb-4 md:mb-0 object-cover"> <div class="flex-1"> <h3 class="text-2xl font-bold text-amber-400">Downtown 10K</h3> <p class="text-md text-cyan-500 mb-2">September 15, 2024</p> <p class="text-lg">A fast and flat course through the heart of the city. A great opportunity for a new personal best.</p> </div> </div>
-                        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 md:flex items-center gap-6"> <img src="https://placehold.co/400x250/111827/F59E0B?text=Race+Image" class="w-full md:w-1/3 h-auto rounded-lg mb-4 md:mb-0 object-cover"> <div class="flex-1"> <h3 class="text-2xl font-bold text-amber-400">Mountain Ridge Half Marathon</h3> <p class="text-md text-cyan-500 mb-2">October 20, 2024</p> <p class="text-lg">A challenging but scenic trail race with beautiful autumn views.</p> </div> </div>
+                    <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
+                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Sunday</h4>
+                        <p class="text-sky-600 text-lg">Long Nightmare Run</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Join Section -->
-            <div id="join" class="content-section hidden">
-                <h1 class="text-4xl font-bold text-amber-500 mb-6">Join RNA</h1>
-                <p class="mb-8 max-w-2xl text-lg">Ready to run with us? We'd love to have you. Fill out the form below to get in touch or find us on social media.</p>
-                <form class="max-w-xl space-y-4">
-                    <div> <label for="name" class="block mb-2 font-semibold">Name</label> <input type="text" id="name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"> </div>
-                    <div> <label for="email" class="block mb-2 font-semibold">Email</label> <input type="email" id="email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"> </div>
-                    <button type="submit" class="w-full p-4 bg-cyan-500 text-black font-bold rounded-lg hover:bg-cyan-400 btn-ripple">Send Inquiry</button>
-                </form>
-                <div class="max-w-xl mt-10 text-center">
-                    <h3 class="text-xl font-bold text-amber-400 mb-4">Send us Here</h3>
-                    <div class="flex justify-center space-x-4">
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg flex items-center btn-ripple"> <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 3.59 1.87 6.74 4.68 8.44l-1.6 4.82a1 1 0 0 0 1.26 1.26l4.82-1.6C12.45 22.87 18.41 22.13 22 17.32 22 10.48 17.52 2 12 2zm1.41 12.59L12 13.17l-1.41 1.42-4.24-4.25 8.48-4.24 1.42 1.41-4.25 8.49z"></path></svg> Messenger </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg flex items-center btn-ripple"> <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c-2.72 0-3.05.01-4.12.06-1.06.05-1.79.22-2.42.47-.65.25-1.16.6-1.67 1.1-.5.5-.86 1.02-1.1 1.67-.25.63-.42 1.36-.47 2.42C2.01 8.95 2 9.28 2 12s.01 3.05.06 4.12c.05 1.06.22 1.79.47 2.42.25.65.6 1.16 1.1 1.67.5.5 1.02.86 1.67 1.1.63.25 1.36.42 2.42.47 1.07.05 1.4.06 4.12.06s3.05-.01 4.12-.06c1.06-.05 1.79-.22 2.42-.47.65-.25 1.16-.6 1.67-1.1.5-.5.86-1.02 1.1-1.67.25-.63-.42-1.36-.47-2.42.05-1.07.06-1.4.06-4.12s-.01-3.05-.06-4.12c-.05-1.06-.22-1.79-.47-2.42-.25-.65-.6-1.16-1.1-1.67-.5-.5-1.02-.86-1.67-1.1-.63-.25-1.36-.42-2.42-.47C15.05 2.01 14.72 2 12 2zm0 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.4-9.3c-.66 0-1.2.54-1.2 1.2s.54 1.2 1.2 1.2 1.2-.54 1.2-1.2-.54-1.2-1.2-1.2z"></path></svg> Instagram </a>
+        <!-- Events Section -->
+        <section id="events" class="py-20 md:py-32 section-fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4">Where to Find Us</h2>
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12">Upcoming Events</h3>
+                <div class="space-y-6">
+                    <!-- Event Item -->
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <p class="text-amber-500 font-bold">OCT 26, 2025</p>
+                            <h4 class="text-2xl font-bold text-sky-600">City Marathon 2025</h4>
+                            <p class="text-stone-400">Downtown Central Park</p>
+                        </div>
+                        <a href="#" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Event Details</a>
+                    </div>
+                    <!-- Event Item -->
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                           <p class="text-amber-500 font-bold">NOV 15, 2025</p>
+                            <h4 class="text-2xl font-bold text-sky-600">Ridgeback Trail Run (50k)</h4>
+                            <p class="text-stone-400">Mountain View National Forest</p>
+                        </div>
+                        <a href="#" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Event Details</a>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </main>
-    </div>
+        <!-- Members Section -->
+        <section id="members" class="py-20 md:py-32 section-fade-in">
+             <div class="max-w-5xl mx-auto">
+                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4">The Team</h2>
+                <h3 class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12">Meet the Crew</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Member Card Example -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/300x300/0284c7/f5f5f4?text=RNA" alt="Team Member 1" class="w-full h-auto rounded-lg mb-3">
+                        <h4 class="font-bold text-lg">Alex Doe</h4>
+                        <p class="text-sky-600 text-sm">Marathoner</p>
+                    </div>
+                    <!-- Member Card Example -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/300x300/f59e0b/000000?text=RNA" alt="Team Member 2" class="w-full h-auto rounded-lg mb-3">
+                        <h4 class="font-bold text-lg">Jordan Smith</h4>
+                        <p class="text-sky-600 text-sm">Ultra Runner</p>
+                    </div>
+                    <!-- Member Card Example -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/300x300/0284c7/f5f5f4?text=RNA" alt="Team Member 3" class="w-full h-auto rounded-lg mb-3">
+                        <h4 class="font-bold text-lg">Casey Lee</h4>
+                        <p class="text-sky-600 text-sm">Sprinter</p>
+                    </div>
+                    <!-- Member Card Example -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/300x300/f59e0b/000000?text=RNA" alt="Team Member 4" class="w-full h-auto rounded-lg mb-3">
+                        <h4 class="font-bold text-lg">Taylor Ray</h4>
+                        <p class="text-sky-600 text-sm">Trail Specialist</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+        <!-- Join Section -->
+        <section id="join" class="py-20 md:py-32 text-center section-fade-in">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4">Ready to Run?</h2>
+            <p class="text-lg text-stone-400 max-w-xl mx-auto mb-8">If our philosophy resonates with you, we'd love to hear from you. Reach out and let's start the conversation.</p>
+            <a href="mailto:rna@gmail.com" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300">
+                Contact Us
+            </a>
+            <div class="mt-12 text-stone-400">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <!-- Facebook Icon -->
+                    <a href="#" class="hover:text-amber-500 transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="#" class="hover:text-amber-500 transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                    </a>
+                </div>
+                <div class="space-y-2">
+                    <p><a href="mailto:rna@gmail.com" class="hover:text-sky-600 transition-colors duration-300">rna@gmail.com</a></p>
+                    <p><a href="tel:1234567890" class="hover:text-sky-600 transition-colors duration-300">Phone: 123-456-7890</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-800 mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-stone-500">
+            <p>&copy; 2025 RNA Running. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed with <span class="text-sky-600">&hearts;</span></p>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const splashScreen = document.getElementById('splash-screen');
-            const mainContent = document.getElementById('main-content');
-            const enterButton = document.getElementById('enter-button');
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            enterButton.addEventListener('click', function() {
-                splashScreen.style.opacity = '0';
-                setTimeout(() => {
-                    splashScreen.classList.add('hidden');
-                    mainContent.classList.remove('hidden');
-                }, 800); 
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
             });
-            
-            function createRipple(event) {
-                const button = event.currentTarget;
-                const circle = document.createElement("span");
-                const diameter = Math.max(button.clientWidth, button.clientHeight);
-                const radius = diameter / 2;
-                
-                circle.style.width = circle.style.height = `${diameter}px`;
-                const rect = button.getBoundingClientRect();
-                circle.style.left = `${event.clientX - rect.left - radius}px`;
-                circle.style.top = `${event.clientY - rect.top - radius}px`;
-                circle.classList.add("ripple-effect");
-                
-                const ripple = button.getElementsByClassName("ripple-effect")[0];
-                if (ripple) {
-                    ripple.remove();
+        }
+        
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('.section-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-                
-                button.appendChild(circle);
-            }
-
-            document.querySelectorAll(".btn-ripple").forEach(button => {
-                button.addEventListener("click", createRipple);
             });
+        }, {
+            threshold: 0.1
+        });
 
-            function showContent(containerSelector, linkSelector, contentSelector, targetAttribute, activeClass) {
-                const navContainer = document.querySelector(containerSelector);
-                if (!navContainer) return;
-
-                navContainer.addEventListener('click', function(e) {
-                    const link = e.target.closest(linkSelector);
-                    if (!link) return;
-                    e.preventDefault();
-
-                    const targetId = link.getAttribute(targetAttribute);
-                    const targetSection = document.getElementById(targetId);
-
-                    navContainer.querySelectorAll(linkSelector).forEach(l => l.classList.remove(activeClass));
-                    link.classList.add(activeClass);
-                    
-                    document.querySelectorAll(contentSelector).forEach(s => {
-                       s.classList.add('hidden');
-                    });
-                    
-                    if (targetSection) {
-                        targetSection.classList.remove('hidden');
-                    }
-                });
-            }
-
-            showContent('#nav-links', '.nav-link', '.content-section', 'data-target', 'active');
-            showContent('#team-sub-nav', '.sub-nav-link', '.team-content', 'data-target', 'active');
-            showContent('#run-sub-nav', '.sub-nav-link', '.run-content', 'data-target', 'active');
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
-
 </body>
 </html>
