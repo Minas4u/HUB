@@ -48,7 +48,7 @@
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
             <!-- Logo -->
             <a href="#home">
-                <img src="https://drive.google.com/uc?id=1EmjEgZfuKY6sF89Wu6dMmUW1WTbD1dlv" alt="RNA Logo" class="h-12 w-auto">
+                <img id="site_logo" src="" alt="RNA Logo" class="h-12 w-auto">
             </a>
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -62,7 +62,7 @@
                 <a href="#sessions" class="hover:text-sky-600 transition-colors duration-300">Sessions</a>
                 <a href="#events" class="hover:text-sky-600 transition-colors duration-300">Events</a>
                 <a href="#members" class="hover:text-sky-600 transition-colors duration-300">Members</a>
-                <a href="#join" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Join Us</a>
+                <a href="#join" id="nav_join_button" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"></a>
             </div>
         </nav>
         <!-- Mobile Menu -->
@@ -80,32 +80,28 @@
         <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center section-fade-in">
             <div class="max-w-4xl">
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4">
-                    Run. <span class="text-sky-600">Evolve.</span> Repeat.
-                </h1>
-                <p class="text-lg md:text-xl text-stone-400 max-w-2xl">
-                    We are RNA, a collective of runners bound by the pursuit of progress. We believe every stride is a step towards a better self. Welcome to the team.
-                </p>
+                <h1 id="home_headline" class="text-6xl md:text-8xl font-black tracking-tighter mb-4"></h1>
+                <p id="home_subheading" class="text-lg md:text-xl text-stone-400 max-w-2xl"></p>
             </div>
         </section>
 
         <!-- Philosophy Section -->
         <section id="philosophy" class="py-20 md:py-32 section-fade-in">
             <div class="max-w-4xl mx-auto text-center">
-                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4">Our Core Beliefs</h2>
-                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-8">The DNA of RNA</h3>
+                <h2 id="philosophy_tagline" class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4"></h2>
+                <h3 id="philosophy_title" class="text-4xl md:text-6xl font-black tracking-tighter mb-8"></h3>
                 <div class="grid md:grid-cols-3 gap-8 text-left">
                     <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Consistency</h4>
-                        <p class="text-stone-400">Success isn't born from grand gestures, but from the discipline of showing up, day after day. We value the rhythm of routine.</p>
+                        <h4 id="philosophy_item1_title" class="text-2xl font-bold mb-3 text-sky-600"></h4>
+                        <p id="philosophy_item1_text" class="text-stone-400"></p>
                     </div>
                     <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Community</h4>
-                        <p class="text-stone-400">We run our own races, but never alone. The team is our pacer, our support system, and our motivation to push beyond limits.</p>
+                        <h4 id="philosophy_item2_title" class="text-2xl font-bold mb-3 text-sky-600"></h4>
+                        <p id="philosophy_item2_text" class="text-stone-400"></p>
                     </div>
                     <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-sky-600">Adaptation</h4>
-                        <p class="text-stone-400">Like our namesake, we adapt and evolve. We learn from every run, every setback, and every victory to become stronger athletes.</p>
+                        <h4 id="philosophy_item3_title" class="text-2xl font-bold mb-3 text-sky-600"></h4>
+                        <p id="philosophy_item3_text" class="text-stone-400"></p>
                     </div>
                 </div>
             </div>
@@ -114,24 +110,24 @@
         <!-- Sessions Section -->
         <section id="sessions" class="py-20 md:py-32 section-fade-in">
             <div class="max-w-6xl mx-auto text-center">
-                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4">Weekly Grind</h2>
-                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-12">Training Sessions</h3>
+                <h2 id="sessions_tagline" class="text-sm font-bold uppercase tracking-widest text-amber-500 mb-4"></h2>
+                <h3 id="sessions_title" class="text-4xl md:text-6xl font-black tracking-tighter mb-12"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Monday</h4>
-                        <p class="text-sky-600 text-lg">Weak STR</p>
+                        <h4 id="session_1_day" class="text-2xl font-bold mb-3 text-stone-200"></h4>
+                        <p id="session_1_name" class="text-sky-600 text-lg"></p>
                     </div>
                     <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Tuesday</h4>
-                        <p class="text-sky-600 text-lg">Terrible Tempo</p>
+                        <h4 id="session_2_day" class="text-2xl font-bold mb-3 text-stone-200"></h4>
+                        <p id="session_2_name" class="text-sky-600 text-lg"></p>
                     </div>
                     <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Thursday</h4>
-                        <p class="text-sky-600 text-lg">Bored Intervals</p>
+                        <h4 id="session_3_day" class="text-2xl font-bold mb-3 text-stone-200"></h4>
+                        <p id="session_3_name" class="text-sky-600 text-lg"></p>
                     </div>
                     <div class="bg-stone-900/50 p-8 rounded-lg border border-stone-800">
-                        <h4 class="text-2xl font-bold mb-3 text-stone-200">Sunday</h4>
-                        <p class="text-sky-600 text-lg">Long Nightmare Run</p>
+                        <h4 id="session_4_day" class="text-2xl font-bold mb-3 text-stone-200"></h4>
+                        <p id="session_4_name" class="text-sky-600 text-lg"></p>
                     </div>
                 </div>
             </div>
@@ -140,86 +136,39 @@
         <!-- Events Section -->
         <section id="events" class="py-20 md:py-32 section-fade-in">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4">Where to Find Us</h2>
-                <h3 class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12">Upcoming Events</h3>
-                <div class="space-y-6">
-                    <!-- Event Item -->
-                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div>
-                            <p class="text-amber-500 font-bold">OCT 26, 2025</p>
-                            <h4 class="text-2xl font-bold text-sky-600">City Marathon 2025</h4>
-                            <p class="text-stone-400">Downtown Central Park</p>
-                        </div>
-                        <a href="#" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Event Details</a>
-                    </div>
-                    <!-- Event Item -->
-                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div>
-                           <p class="text-amber-500 font-bold">NOV 15, 2025</p>
-                            <h4 class="text-2xl font-bold text-sky-600">Ridgeback Trail Run (50k)</h4>
-                            <p class="text-stone-400">Mountain View National Forest</p>
-                        </div>
-                        <a href="#" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Event Details</a>
-                    </div>
-                </div>
+                <h2 id="events_tagline" class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4"></h2>
+                <h3 id="events_title" class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12"></h3>
+                <div id="events_container" class="space-y-6"></div>
             </div>
         </section>
 
         <!-- Members Section -->
         <section id="members" class="py-20 md:py-32 section-fade-in">
              <div class="max-w-5xl mx-auto">
-                 <h2 class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4">The Team</h2>
-                <h3 class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12">Meet the Crew</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Member Card Example -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/300x300/0284c7/f5f5f4?text=RNA" alt="Team Member 1" class="w-full h-auto rounded-lg mb-3">
-                        <h4 class="font-bold text-lg">Alex Doe</h4>
-                        <p class="text-sky-600 text-sm">Marathoner</p>
-                    </div>
-                    <!-- Member Card Example -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/300x300/f59e0b/000000?text=RNA" alt="Team Member 2" class="w-full h-auto rounded-lg mb-3">
-                        <h4 class="font-bold text-lg">Jordan Smith</h4>
-                        <p class="text-sky-600 text-sm">Ultra Runner</p>
-                    </div>
-                    <!-- Member Card Example -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/300x300/0284c7/f5f5f4?text=RNA" alt="Team Member 3" class="w-full h-auto rounded-lg mb-3">
-                        <h4 class="font-bold text-lg">Casey Lee</h4>
-                        <p class="text-sky-600 text-sm">Sprinter</p>
-                    </div>
-                    <!-- Member Card Example -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/300x300/f59e0b/000000?text=RNA" alt="Team Member 4" class="w-full h-auto rounded-lg mb-3">
-                        <h4 class="font-bold text-lg">Taylor Ray</h4>
-                        <p class="text-sky-600 text-sm">Trail Specialist</p>
-                    </div>
-                </div>
+                <h2 id="members_tagline" class="text-sm font-bold uppercase tracking-widest text-amber-500 text-center mb-4"></h2>
+                <h3 id="members_title" class="text-4xl md:text-6xl font-black tracking-tighter text-center mb-12"></h3>
+                <div id="members_container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
              </div>
         </section>
         
         <!-- Join Section -->
         <section id="join" class="py-20 md:py-32 text-center section-fade-in">
-            <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4">Ready to Run?</h2>
-            <p class="text-lg text-stone-400 max-w-xl mx-auto mb-8">If our philosophy resonates with you, we'd love to hear from you. Reach out and let's start the conversation.</p>
-            <a href="mailto:rna@gmail.com" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300">
-                Contact Us
-            </a>
+            <h2 id="join_title" class="text-4xl md:text-6xl font-black tracking-tighter mb-4"></h2>
+            <p id="join_subheading" class="text-lg text-stone-400 max-w-xl mx-auto mb-8"></p>
+            <a id="join_contact_button" href="#" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300"></a>
             <div class="mt-12 text-stone-400">
                 <div class="flex justify-center space-x-6 mb-6">
-                    <!-- Facebook Icon -->
-                    <a href="#" class="hover:text-amber-500 transition-colors duration-300">
+                    <!-- Social Icons -->
+                    <a id="social_link_1" href="#" class="hover:text-amber-500 transition-colors duration-300">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
                     </a>
-                    <!-- Instagram Icon -->
-                    <a href="#" class="hover:text-amber-500 transition-colors duration-300">
+                    <a id="social_link_2" href="#" class="hover:text-amber-500 transition-colors duration-300">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
                     </a>
                 </div>
                 <div class="space-y-2">
-                    <p><a href="mailto:rna@gmail.com" class="hover:text-sky-600 transition-colors duration-300">rna@gmail.com</a></p>
-                    <p><a href="tel:1234567890" class="hover:text-sky-600 transition-colors duration-300">Phone: 123-456-7890</a></p>
+                    <p><a id="contact_email" href="#" class="hover:text-sky-600 transition-colors duration-300"></a></p>
+                    <p><a id="contact_phone" href="#" class="hover:text-sky-600 transition-colors duration-300"></a></p>
                 </div>
             </div>
         </section>
@@ -229,12 +178,193 @@
     <!-- Footer -->
     <footer class="border-t border-stone-800 mt-20">
         <div class="container mx-auto px-6 py-8 text-center text-stone-500">
-            <p>&copy; 2025 RNA Running. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Designed with <span class="text-sky-600">&hearts;</span></p>
+            <p id="footer_copyright"></p>
+            <p id="footer_credits" class="text-sm mt-2"></p>
         </div>
     </footer>
 
     <script>
+        // --- START: SELF-CONTAINED WEBSITE DATA ---
+        // All content is now stored here. Edit the values below to update the website.
+        const siteData = {
+            // General Site Content
+            "site_logo_url": "https://drive.google.com/uc?id=1EmjEgZfuKY6sF89Wu6dMmUW1WTbD1dlv",
+            "nav_join_button_text": "Join Us",
+            "home_headline": "Run. <span class='text-sky-600'>Evolve.</span> Repeat.",
+            "home_subheading": "We are RNA, a collective of runners bound by the pursuit of progress. We believe every stride is a step towards a better self. Welcome to the team.",
+            
+            // Philosophy Section
+            "philosophy_tagline": "Our Core Beliefs",
+            "philosophy_title": "The DNA of RNA",
+            "philosophy_item1_title": "Consistency",
+            "philosophy_item1_text": "Success isn't born from grand gestures, but from the discipline of showing up, day after day. We value the rhythm of routine.",
+            "philosophy_item2_title": "Community",
+            "philosophy_item2_text": "We run our own races, but never alone. The team is our pacer, our support system, and our motivation to push beyond limits.",
+            "philosophy_item3_title": "Adaptation",
+            "philosophy_item3_text": "Like our namesake, we adapt and evolve. We learn from every run, every setback, and every victory to become stronger athletes.",
+
+            // Sessions Section
+            "sessions_tagline": "Weekly Grind",
+            "sessions_title": "Training Sessions",
+            "session_1_day": "Monday",
+            "session_1_name": "Weak STR",
+            "session_2_day": "Tuesday",
+            "session_2_name": "Terrible Tempo",
+            "session_3_day": "Thursday",
+            "session_3_name": "Bored Intervals",
+            "session_4_day": "Sunday",
+            "session_4_name": "Long Nightmare Run",
+
+            // Events Section
+            "events_tagline": "Where to Find Us",
+            "events_title": "Upcoming Events",
+            
+            // Members Section
+            "members_tagline": "The Team",
+            "members_title": "Meet the Crew",
+
+            // Join/Contact Section
+            "join_title": "Ready to Run?",
+            "join_subheading": "If our philosophy resonates with you, we'd love to hear from you. Reach out and let's start the conversation.",
+            "join_contact_button_text": "Contact Us",
+            "join_contact_button_link": "mailto:rna@gmail.com",
+            "social_link_1_url": "#", // Replace with your Facebook URL
+            "social_link_2_url": "#", // Replace with your Instagram URL
+            "contact_email": "rna@gmail.com",
+            "contact_email_link": "mailto:rna@gmail.com",
+            "contact_phone": "Phone: 123-456-7890",
+            "contact_phone_link": "tel:1234567890",
+
+            // Footer
+            "footer_copyright": "&copy; 2025 RNA Running. All Rights Reserved.",
+            "footer_credits": "Designed with <span class='text-sky-600'>&hearts;</span>"
+        };
+        
+        // Members Data - Add or remove members here
+        const membersData = [
+            {
+                name: "Alex Doe",
+                role: "Marathoner",
+                imageUrl: "https://placehold.co/300x300/0284c7/f5f5f4?text=RNA",
+            },
+            {
+                name: "Jordan Smith",
+                role: "Ultra Runner",
+                imageUrl: "https://placehold.co/300x300/f59e0b/000000?text=RNA",
+            },
+            {
+                name: "Casey Lee",
+                role: "Sprinter",
+                imageUrl: "https://placehold.co/300x300/0284c7/f5f5f4?text=RNA",
+            },
+            {
+                name: "Taylor Ray",
+                role: "Trail Specialist",
+                imageUrl: "https://placehold.co/300x300/f59e0b/000000?text=RNA",
+            }
+        ];
+
+        // Events Data - Add or remove events here
+        const eventsData = [
+            {
+                date: "SEP 21, 2025",
+                title: "Ioannina Lake Run",
+                location: "Ioannina",
+                detailsUrl: "#"
+            },
+            {
+                date: "NOV 9, 2025",
+                title: "Athens Marathon (42.195m)",
+                location: "Marathon",
+                detailsUrl: "#"
+            }
+        ];
+        // --- END: SELF-CONTAINED WEBSITE DATA ---
+
+
+        /**
+         * Populates the main site content from the siteData object.
+         */
+        function populateSiteContent() {
+            // Helper to safely set text content or innerHTML
+            const setContent = (id, key) => {
+                const element = document.getElementById(id);
+                if (element && siteData[key] !== undefined) {
+                     // Use innerHTML for keys that might contain HTML tags
+                     if (key === 'home_headline' || key === 'footer_credits') {
+                        element.innerHTML = siteData[key];
+                    } else {
+                        element.textContent = siteData[key];
+                    }
+                }
+            };
+            
+            // Helper to safely set element attributes
+            const setAttr = (id, attr, key) => {
+                const element = document.getElementById(id);
+                if (element && siteData[key] !== undefined) {
+                    element.setAttribute(attr, siteData[key]);
+                }
+            };
+
+            // Populate all elements using the helpers
+            for (const key in siteData) {
+                if (key.endsWith('_url') || key.endsWith('_link')) {
+                    const id = key.replace('_url', '').replace('_link', '');
+                    const attr = (key.includes('logo')) ? 'src' : 'href';
+                    setAttr(id, attr, key);
+                } else {
+                    setContent(key, key);
+                }
+            }
+        }
+
+        /**
+         * Populates the members section from the membersData array.
+         */
+        function populateMembers() {
+            const container = document.getElementById('members_container');
+            container.innerHTML = ''; // Clear container
+
+            membersData.forEach(member => {
+                // Use a placeholder if imageUrl is missing
+                const imageUrl = member.imageUrl || `https://placehold.co/300x300/0284c7/f5f5f4?text=${encodeURIComponent(member.name.charAt(0))}`;
+
+                const memberCard = `
+                    <div class="text-center">
+                        <img src="${imageUrl}" alt="Team Member: ${member.name}" class="w-full h-auto object-cover aspect-square rounded-lg mb-3" onerror="this.onerror=null;this.src='https://placehold.co/300x300/ccc/000?text=Error';">
+                        <h4 class="font-bold text-lg">${member.name}</h4>
+                        <p class="text-sky-600 text-sm">${member.role}</p>
+                    </div>
+                `;
+                container.innerHTML += memberCard;
+            });
+        }
+
+        /**
+         * Populates the events section from the eventsData array.
+         */
+        function populateEvents() {
+            const container = document.getElementById('events_container');
+            container.innerHTML = ''; // Clear container
+
+            eventsData.forEach(event => {
+                const eventItem = `
+                    <div class="bg-stone-900/50 p-6 rounded-lg border border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <p class="text-amber-500 font-bold">${event.date}</p>
+                            <h4 class="text-2xl font-bold text-sky-600">${event.title}</h4>
+                            <p class="text-stone-400">${event.location}</p>
+                        </div>
+                        <a href="${event.detailsUrl}" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Event Details</a>
+                    </div>
+                `;
+                container.innerHTML += eventItem;
+            });
+        }
+
+        // --- START: ORIGINAL PAGE JAVASCRIPT ---
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -244,9 +374,9 @@
 
         // Close mobile menu when a link is clicked
         const mobileLinks = mobileMenu.getElementsByTagName('a');
-        for(let link of mobileLinks) {
+        for (let link of mobileLinks) {
             link.addEventListener('click', () => {
-                 mobileMenu.classList.add('hidden');
+                mobileMenu.classList.add('hidden');
             });
         }
         
@@ -265,6 +395,19 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        // --- END: ORIGINAL PAGE JAVASCRIPT ---
+
+
+        // --- START: INITIALIZATION ---
+        // Run all population functions when the page content has loaded.
+        document.addEventListener('DOMContentLoaded', () => {
+            populateSiteContent();
+            populateMembers();
+            populateEvents();
+        });
+        // --- END: INITIALIZATION ---
+
     </script>
 </body>
 </html>
