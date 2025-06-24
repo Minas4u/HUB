@@ -188,13 +188,13 @@
         // All content is now stored here. Edit the values below to update the website.
         const siteData = {
             // General Site Content
-            "site_logo_url": "https://drive.google.com/file/d/1EmjEgZfuKY6sF89Wu6dMmUW1WTbD1dlv/view?usp=drive_link",
+            "site_logo_url": "https://placehold.co/200x80/000000/0284c7?text=RNA",
             "nav_join_button_text": "Join Us",
-            "home_headline": "Running <span class='text-sky-600'>Association</span> Spata</span class='text-warning>",
-            "home_subheading": "Είμαστε η RNA, μια ομάδα δρομέων που μας ενώνει η επιδίωξη της προόδου. Πιστεύουμε ότι κάθε χιλιόμετρο είναι ένα βήμα προς έναν καλύτερο εαυτό. Καλώς ήρθατε στην ομάδα.",
+            "home_headline": "Running <span class='text-sky-600'>Association</span> <span class='text-amber-500'>Spata</span>",
+            "home_subheading": "Το RNA:Spata είναι μια δρομική ομάδα που επαναπροσδιορίζει το τρέξιμο. Σε μια εποχή γεμάτη τεχνολογία, social media και παραπληροφόρηση, εμείς σας θυμίζουμε γιατί τρέχετε. Στόχος μας δεν είναι μόνο οι επιδόσεις, αλλά η σωματική και ψυχική σας υγεία, η χαρά της συμμετοχής και η κοινωνικοποίηση. Το τρέξιμο είναι για όλους, ένα διάλειμμα από την καθημερινότητα, μια στιγμή για εσάς. Ελάτε στην παρέα του RNA, όπου η αίσθηση μετράει περισσότερο από το ρολόι και η χαρά της άθλησης είναι το ζητούμενο..",
             
             // Philosophy Section
-            "philosophy_tagline": "Φιλοσοφία",
+            "philosophy_tagline": "Φιλοσοφια",
             "philosophy_title": "DNA of RNA",
             "philosophy_item1_title": "Συνέπεια",
             "philosophy_item1_text": "Η επιτυχία δεν γεννιέται από μεγάλες χειρονομίες, αλλά από την πειθαρχία του να δίνεις το παρών, μέρα με τη μέρα. Εκτιμούμε τον ρυθμό της ρουτίνας.",
@@ -216,39 +216,39 @@
             "session_4_name": "Long Nightmare Run",
 
             // Events Section
-            "events_tagline": "Find Us",
+            "events_tagline": "Upcoming",
             "events_title": "Events",
             
             // Members Section
             "members_tagline": "Η Ομάδα",
-            "members_title": "Meet the Crew",
+            "members_title": "RNA",
 
             // Join/Contact Section
             "join_title": "Ready to Run?",
             "join_subheading": "Αν η φιλοσοφία μας σε εκφράζει, επικοινώνησε μαζί μας για να ξεκινήσουμε.",
             "join_contact_button_text": "Contact Us",
-            "join_contact_button_link": "mailto:rna@gmail.com",
-            "social_link_1_url": "https://www.facebook.com/groups/1330384738279028", // Replace with your Facebook URL
+            "join_contact_button_link": "mailto:rna@example.com",
+            "social_link_1_url": "https://www.facebook.com/groups/1330384738279028", 
             "social_link_2_url": "https://www.instagram.com/rna.run/",
-            "contact_email": "rna@gmail.com",
-            "contact_email_link": "mailto:rna@gmail.com",
+            "contact_email": "rna@example.com",
+            "contact_email_link": "mailto:rna@example.com",
             "contact_phone": "Phone: 123-456-7890",
-            "contact_phone_link": "tel:1234567890",
+            "contact_phone_link": "tel:123-456-7890",
 
             // Footer
-            "footer_copyright": "2025 RNA Running. All Rights Reserved.",
+            "footer_copyright": "© 2025 RNA Running. All Rights Reserved.",
             "footer_credits": "Designed with <span class='text-sky-600'>&hearts;</span>"
         };
         
         // Members Data - Add or remove members here
         const membersData = [
             {
-                name: "Minas Manousakas",
+                name: "Μα",
                 role: "Team Leader & Coach",
                 imageUrl: "https://placehold.co/300x300/0284c7/f5f5f4?text=RNA",
             },
             {
-                name: "Kostas Monokrousos",
+                name: "Μο",
                 role: "Head Coach",
                 imageUrl: "https://placehold.co/300x300/f59e0b/000000?text=RNA",
             },
@@ -277,8 +277,8 @@
                 title: "Athens Marathon (42.195m)",
                 location: "Marathon",
                 detailsUrl: "#"
-            }
- {
+            },
+            {
                 date: "FROM JULY",
                 title: "Training Sessions and Meetings",
                 location: "Spata Stadium",
@@ -290,22 +290,26 @@
 
         /**
          * Populates the main site content from the siteData object.
+         * This version is more direct and less prone to errors than the original.
          */
         function populateSiteContent() {
-            // Helper to safely set text content or innerHTML
-            const setContent = (id, key) => {
+            // Helper to safely set text content
+            const setText = (id, key) => {
                 const element = document.getElementById(id);
                 if (element && siteData[key] !== undefined) {
-                     // Use innerHTML for keys that might contain HTML tags
-                     if (key === 'home_headline' || key === 'footer_credits') {
-                        element.innerHTML = siteData[key];
-                    } else {
-                        element.textContent = siteData[key];
-                    }
+                    element.textContent = siteData[key];
                 }
             };
             
-            // Helper to safely set element attributes
+            // Helper to safely set innerHTML content
+            const setHTML = (id, key) => {
+                 const element = document.getElementById(id);
+                if (element && siteData[key] !== undefined) {
+                    element.innerHTML = siteData[key];
+                }
+            };
+
+            // Helper to safely set an attribute
             const setAttr = (id, attr, key) => {
                 const element = document.getElementById(id);
                 if (element && siteData[key] !== undefined) {
@@ -313,16 +317,62 @@
                 }
             };
 
-            // Populate all elements using the helpers
-            for (const key in siteData) {
-                if (key.endsWith('_url') || key.endsWith('_link')) {
-                    const id = key.replace('_url', '').replace('_link', '');
-                    const attr = (key.includes('logo')) ? 'src' : 'href';
-                    setAttr(id, attr, key);
-                } else {
-                    setContent(key, key);
-                }
-            }
+            // --- Populate all content directly ---
+
+            // Header & Nav
+            setAttr('site_logo', 'src', 'site_logo_url');
+            setText('nav_join_button', 'nav_join_button_text');
+            // Note: nav join button link is a page anchor, so it's set in HTML.
+
+            // Home Section
+            setHTML('home_headline', 'home_headline');
+            setText('home_subheading', 'home_subheading');
+
+            // Philosophy Section
+            setText('philosophy_tagline', 'philosophy_tagline');
+            setText('philosophy_title', 'philosophy_title');
+            setText('philosophy_item1_title', 'philosophy_item1_title');
+            setText('philosophy_item1_text', 'philosophy_item1_text');
+            setText('philosophy_item2_title', 'philosophy_item2_title');
+            setText('philosophy_item2_text', 'philosophy_item2_text');
+            setText('philosophy_item3_title', 'philosophy_item3_title');
+            setText('philosophy_item3_text', 'philosophy_item3_text');
+            
+            // Sessions Section
+            setText('sessions_tagline', 'sessions_tagline');
+            setText('sessions_title', 'sessions_title');
+            setText('session_1_day', 'session_1_day');
+            setText('session_1_name', 'session_1_name');
+            setText('session_2_day', 'session_2_day');
+            setText('session_2_name', 'session_2_name');
+            setText('session_3_day', 'session_3_day');
+            setText('session_3_name', 'session_3_name');
+            setText('session_4_day', 'session_4_day');
+            setText('session_4_name', 'session_4_name');
+
+            // Events Section
+            setText('events_tagline', 'events_tagline');
+            setText('events_title', 'events_title');
+            
+            // Members Section
+            setText('members_tagline', 'members_tagline');
+            setText('members_title', 'members_title');
+
+            // Join/Contact Section
+            setText('join_title', 'join_title');
+            setText('join_subheading', 'join_subheading');
+            setText('join_contact_button', 'join_contact_button_text');
+            setAttr('join_contact_button', 'href', 'join_contact_button_link');
+            setAttr('social_link_1', 'href', 'social_link_1_url');
+            setAttr('social_link_2', 'href', 'social_link_2_url');
+            setText('contact_email', 'contact_email');
+            setAttr('contact_email', 'href', 'contact_email_link');
+            setText('contact_phone', 'contact_phone');
+            setAttr('contact_phone', 'href', 'contact_phone_link');
+            
+            // Footer
+            setText('footer_copyright', 'footer_copyright');
+            setHTML('footer_credits', 'footer_credits');
         }
 
         /**
@@ -330,6 +380,7 @@
          */
         function populateMembers() {
             const container = document.getElementById('members_container');
+            if (!container) return;
             container.innerHTML = ''; // Clear container
 
             membersData.forEach(member => {
@@ -352,6 +403,7 @@
          */
         function populateEvents() {
             const container = document.getElementById('events_container');
+            if (!container) return;
             container.innerHTML = ''; // Clear container
 
             eventsData.forEach(event => {
@@ -369,7 +421,7 @@
             });
         }
 
-        // --- START: ORIGINAL PAGE JAVASCRIPT ---
+        // --- START: PAGE INTERACTIVITY ---
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
@@ -402,7 +454,7 @@
             observer.observe(section);
         });
 
-        // --- END: ORIGINAL PAGE JAVASCRIPT ---
+        // --- END: PAGE INTERACTIVITY ---
 
 
         // --- START: INITIALIZATION ---
