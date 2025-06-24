@@ -48,10 +48,11 @@
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
             <!-- Logo -->
             <a href="#home">
-                <img id="site_logo" src="" alt="RNA Logo" class="h-12 w-auto">
+                <img id="site_logo" src="https://raw.githubusercontent.com/mariosroussos/RNA/main/assets/pictures/rna_logo.png" alt="RNA Logo" class="h-12 w-auto">
             </a>
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
+            <div class="md:hidden flex items-center space-x-4">
+                 <a href="#join" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">Join Us</a>
                 <button id="menu-btn" class="text-stone-200 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
@@ -79,9 +80,10 @@
 
         <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center section-fade-in">
-            <div class="max-w-4xl">
+            <div class="max-w-4xl text-center mx-auto">
+                <img src="https://raw.githubusercontent.com/mariosroussos/RNA/main/assets/pictures/rna_logo.png" alt="RNA Logo Large" class="h-32 md:h-48 w-auto mx-auto mb-8">
                 <h1 id="home_headline" class="text-6xl md:text-8xl font-black tracking-tighter mb-4"></h1>
-                <p id="home_subheading" class="text-lg md:text-xl text-stone-400 max-w-2xl"></p>
+                <p id="home_subheading" class="text-lg md:text-xl text-stone-400 max-w-3xl mx-auto"></p>
             </div>
         </section>
 
@@ -153,6 +155,7 @@
         
         <!-- Join Section -->
         <section id="join" class="py-20 md:py-32 text-center section-fade-in">
+             <img src="https://raw.githubusercontent.com/mariosroussos/RNA/main/assets/pictures/rna_logo.png" alt="RNA Logo Small" class="h-24 w-auto mx-auto mb-8">
             <h2 id="join_title" class="text-4xl md:text-6xl font-black tracking-tighter mb-4"></h2>
             <p id="join_subheading" class="text-lg text-stone-400 max-w-xl mx-auto mb-8"></p>
             <a id="join_contact_button" href="#" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300"></a>
@@ -188,7 +191,7 @@
         // All content is now stored here. Edit the values below to update the website.
         const siteData = {
             // General Site Content
-            "site_logo_url": "assets/pictures/rna_logo.png",
+            "site_logo_url": "https://raw.githubusercontent.com/mariosroussos/RNA/main/assets/pictures/rna_logo.png",
             "nav_join_button_text": "Join Us",
             "home_headline": "Running <span class='text-sky-600'>Association</span> <span class='text-amber-500'>Spata</span>",
             "home_subheading": "Το RNA:Spata είναι μια δρομική ομάδα που επαναπροσδιορίζει το τρέξιμο. Σε μια εποχή γεμάτη τεχνολογία, social media και παραπληροφόρηση, εμείς σας θυμίζουμε γιατί τρέχετε. Στόχος μας δεν είναι μόνο οι επιδόσεις, αλλά η σωματική και ψυχική σας υγεία, η χαρά της συμμετοχής και η κοινωνικοποίηση. Το τρέξιμο είναι για όλους, ένα διάλειμμα από την καθημερινότητα, μια στιγμή για εσάς. Ελάτε στην παρέα του RNA, όπου η αίσθηση μετράει περισσότερο από το ρολόι και η χαρά της άθλησης είναι το ζητούμενο..",
