@@ -44,15 +44,15 @@
 <body class="bg-black text-stone-200">
 
     <!-- Header and Navigation -->
-    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 border-b border-stone-800">
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-40 border-b border-stone-800">
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
             <!-- Logo -->
             <a href="#home">
-                <img id="site_logo" src="assets/pictures/rna_logo.png" alt="RNA Logo" class="h-12 w-auto">
+                <img id="site_logo" src="https://placehold.co/200x100/000000/FFFFFF?text=RNA" alt="RNA Logo" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x100/000000/FFFFFF?text=RNA';">
             </a>
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center space-x-4">
-                 <a href="#join" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">Join Us</a>
+                 <a href="#join" data-modal-trigger class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">Join Us</a>
                 <button id="menu-btn" class="text-stone-200 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
@@ -63,7 +63,7 @@
                 <a href="#sessions" class="hover:text-sky-600 transition-colors duration-300">Sessions</a>
                 <a href="#events" class="hover:text-sky-600 transition-colors duration-300">Events</a>
                 <a href="#members" class="hover:text-sky-600 transition-colors duration-300">Members</a>
-                <a href="#join" id="nav_join_button" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"></a>
+                <a href="#join" id="nav_join_button" data-modal-trigger class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"></a>
             </div>
         </nav>
         <!-- Mobile Menu -->
@@ -72,7 +72,7 @@
             <a href="#sessions" class="block py-2 px-6 text-sm hover:bg-stone-900">Sessions</a>
             <a href="#events" class="block py-2 px-6 text-sm hover:bg-stone-900">Events</a>
             <a href="#members" class="block py-2 px-6 text-sm hover:bg-stone-900">Members</a>
-            <a href="#join" class="block py-2 px-6 text-sm hover:bg-stone-900">Join Us</a>
+            <a href="#join" data-modal-trigger class="block py-2 px-6 text-sm hover:bg-stone-900">Join Us</a>
         </div>
     </header>
 
@@ -81,7 +81,7 @@
         <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center section-fade-in">
             <div class="max-w-4xl text-center mx-auto">
-                <img src="assets/pictures/rna_logo.png" alt="RNA Logo Large" class="h-32 md:h-48 w-auto mx-auto mb-8">
+                <img id="home_logo" src="https://placehold.co/200x100/000000/FFFFFF?text=RNA" alt="RNA Logo Large" class="h-32 md:h-48 w-auto mx-auto mb-8" onerror="this.onerror=null;this.src='https://placehold.co/200x100/000000/FFFFFF?text=RNA';">
                 <h1 id="home_headline" class="text-6xl md:text-8xl font-black tracking-tighter mb-4"></h1>
                 <p id="home_subheading" class="text-lg md:text-xl text-stone-400 max-w-3xl mx-auto"></p>
             </div>
@@ -155,10 +155,10 @@
         
         <!-- Join Section -->
         <section id="join" class="py-20 md:py-32 text-center section-fade-in">
-             <img src="assets/pictures/rna_logo.png" alt="RNA Logo Small" class="h-24 w-auto mx-auto mb-8">
+            <img id="join_logo" src="https://placehold.co/200x100/000000/FFFFFF?text=RNA" alt="RNA Logo Small" class="h-24 w-auto mx-auto mb-8" onerror="this.onerror=null;this.src='https://placehold.co/200x100/000000/FFFFFF?text=RNA';">
             <h2 id="join_title" class="text-4xl md:text-6xl font-black tracking-tighter mb-4"></h2>
             <p id="join_subheading" class="text-lg text-stone-400 max-w-xl mx-auto mb-8"></p>
-            <a id="join_contact_button" href="#" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300"></a>
+            <a id="join_contact_button" href="#" data-modal-trigger class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300"></a>
             <div class="mt-12 text-stone-400">
                 <div class="flex justify-center space-x-6 mb-6">
                     <!-- Social Icons -->
@@ -169,9 +169,13 @@
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
                     </a>
                 </div>
-                <div class="space-y-2">
-                    <p><a id="contact_email" href="#" class="hover:text-sky-600 transition-colors duration-300"></a></p>
-                    <p><a id="contact_phone" href="#" class="hover:text-sky-600 transition-colors duration-300"></a></p>
+                <div class="space-y-4">
+                     <p><a id="contact_email" href="#" class="text-amber-500 hover:text-amber-600 transition-colors duration-300"></a></p>
+                     <p><a id="contact_phone" href="#" class="text-sky-600 hover:text-sky-700 transition-colors duration-300"></a></p>
+                     <div class="text-stone-300">
+                         <p id="contact_location"></p>
+                         <a id="google_maps_button" href="#" target="_blank" class="inline-block mt-3 bg-stone-700 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-lg text-sm transition-colors duration-300">Get Directions</a>
+                     </div>
                 </div>
             </div>
         </section>
@@ -185,6 +189,35 @@
             <p id="footer_credits" class="text-sm mt-2"></p>
         </div>
     </footer>
+
+    <!-- Join Us Modal -->
+    <div id="join-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div id="modal-content" class="bg-stone-900 border border-stone-800 p-8 rounded-lg max-w-md w-full relative">
+            <!-- Close Button -->
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-stone-500 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Form -->
+            <form id="join-form">
+                <h3 class="text-2xl font-bold mb-6 text-center">Join the Team</h3>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Full Name" required class="w-full bg-stone-800 border border-stone-700 rounded-lg p-3 text-stone-200 focus:outline-none focus:ring-2 focus:ring-sky-600">
+                    <input type="email" placeholder="Email Address" required class="w-full bg-stone-800 border border-stone-700 rounded-lg p-3 text-stone-200 focus:outline-none focus:ring-2 focus:ring-sky-600">
+                    <input type="tel" placeholder="Mobile Number" required class="w-full bg-stone-800 border border-stone-700 rounded-lg p-3 text-stone-200 focus:outline-none focus:ring-2 focus:ring-sky-600">
+                    <input type="text" placeholder="Primary Running Distance (e.g., 5k, 10k, Marathon)" required class="w-full bg-stone-800 border border-stone-700 rounded-lg p-3 text-stone-200 focus:outline-none focus:ring-2 focus:ring-sky-600">
+                </div>
+                <button type="submit" class="w-full mt-6 bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">Submit Request</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="success-message" class="hidden text-center">
+                 <h3 class="text-2xl font-bold mb-4 text-amber-500">Thank You!</h3>
+                 <p class="text-stone-300">Your request has been sent. We'll be in touch soon!</p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         // --- START: SELF-CONTAINED WEBSITE DATA ---
@@ -229,14 +262,16 @@
             // Join/Contact Section
             "join_title": "Ready to Run?",
             "join_subheading": "Αν η φιλοσοφία μας σε εκφράζει, επικοινώνησε μαζί μας για να ξεκινήσουμε.",
-            "join_contact_button_text": "Contact Us",
-            "join_contact_button_link": "mailto:rna.greece@gmail.com",
+            "join_contact_button_text": "Request to Join",
+            "join_contact_button_link": "mailto:rna.greece@gmail.com", // Fallback if JS is disabled
             "social_link_1_url": "https://www.facebook.com/groups/1330384738279028", 
             "social_link_2_url": "https://www.instagram.com/rna.run/",
-            "contact_email": "rna@example.com",
+            "contact_email": "rna.greece@gmail.com",
             "contact_email_link": "mailto:rna.greece@gmail.com",
             "contact_phone": "Phone: 123-456-7890",
             "contact_phone_link": "tel:123-456-7890",
+            "contact_location": "Spata Stadium, 19004 Spata, Greece",
+            "contact_location_link": "https://www.google.com/maps/search/?api=1&query=Spata+Stadium",
 
             // Footer
             "footer_copyright": "© 2025 RNA Running. All Rights Reserved.",
@@ -293,7 +328,6 @@
 
         /**
          * Populates the main site content from the siteData object.
-         * This version is more direct and less prone to errors than the original.
          */
         function populateSiteContent() {
             // Helper to safely set text content
@@ -321,17 +355,14 @@
             };
 
             // --- Populate all content directly ---
+            const logoUrl = siteData.site_logo_url;
+            setAttr('site_logo', 'src', logoUrl);
+            setAttr('home_logo', 'src', logoUrl);
+            setAttr('join_logo', 'src', logoUrl);
 
-            // Header & Nav
-            setAttr('site_logo', 'src', 'site_logo_url');
             setText('nav_join_button', 'nav_join_button_text');
-            // Note: nav join button link is a page anchor, so it's set in HTML.
-
-            // Home Section
             setHTML('home_headline', 'home_headline');
             setText('home_subheading', 'home_subheading');
-
-            // Philosophy Section
             setText('philosophy_tagline', 'philosophy_tagline');
             setText('philosophy_title', 'philosophy_title');
             setText('philosophy_item1_title', 'philosophy_item1_title');
@@ -340,8 +371,6 @@
             setText('philosophy_item2_text', 'philosophy_item2_text');
             setText('philosophy_item3_title', 'philosophy_item3_title');
             setText('philosophy_item3_text', 'philosophy_item3_text');
-            
-            // Sessions Section
             setText('sessions_tagline', 'sessions_tagline');
             setText('sessions_title', 'sessions_title');
             setText('session_1_day', 'session_1_day');
@@ -352,16 +381,10 @@
             setText('session_3_name', 'session_3_name');
             setText('session_4_day', 'session_4_day');
             setText('session_4_name', 'session_4_name');
-
-            // Events Section
             setText('events_tagline', 'events_tagline');
             setText('events_title', 'events_title');
-            
-            // Members Section
             setText('members_tagline', 'members_tagline');
             setText('members_title', 'members_title');
-
-            // Join/Contact Section
             setText('join_title', 'join_title');
             setText('join_subheading', 'join_subheading');
             setText('join_contact_button', 'join_contact_button_text');
@@ -372,8 +395,8 @@
             setAttr('contact_email', 'href', 'contact_email_link');
             setText('contact_phone', 'contact_phone');
             setAttr('contact_phone', 'href', 'contact_phone_link');
-            
-            // Footer
+            setText('contact_location', 'contact_location');
+            setAttr('google_maps_button', 'href', 'contact_location_link');
             setText('footer_copyright', 'footer_copyright');
             setHTML('footer_credits', 'footer_credits');
         }
@@ -387,9 +410,7 @@
             container.innerHTML = ''; // Clear container
 
             membersData.forEach(member => {
-                // Use a placeholder if imageUrl is missing
                 const imageUrl = member.imageUrl || `https://placehold.co/300x300/0284c7/f5f5f4?text=${encodeURIComponent(member.name.charAt(0))}`;
-
                 const memberCard = `
                     <div class="text-center">
                         <img src="${imageUrl}" alt="Team Member: ${member.name}" class="w-full h-auto object-cover aspect-square rounded-lg mb-3" onerror="this.onerror=null;this.src='https://placehold.co/300x300/ccc/000?text=Error';">
@@ -437,7 +458,9 @@
         const mobileLinks = mobileMenu.getElementsByTagName('a');
         for (let link of mobileLinks) {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                if (!link.hasAttribute('data-modal-trigger')) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         }
         
@@ -455,6 +478,47 @@
 
         sections.forEach(section => {
             observer.observe(section);
+        });
+        
+        // Modal Interactivity
+        const joinModal = document.getElementById('join-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+        const joinForm = document.getElementById('join-form');
+        const successMessage = document.getElementById('success-message');
+
+        const openModal = () => joinModal.classList.remove('hidden');
+        const closeModal = () => {
+            joinModal.classList.add('hidden');
+            // Reset form for next time
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+                joinForm.classList.remove('hidden');
+                joinForm.reset();
+            }, 500);
+        }
+
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        joinModal.addEventListener('click', (e) => {
+            if (e.target === joinModal) {
+                closeModal();
+            }
+        });
+        
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            joinForm.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+
+            // Close modal automatically after 3 seconds
+            setTimeout(closeModal, 3000);
         });
 
         // --- END: PAGE INTERACTIVITY ---
